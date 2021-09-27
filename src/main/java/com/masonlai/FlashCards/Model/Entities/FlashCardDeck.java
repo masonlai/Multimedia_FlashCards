@@ -2,6 +2,8 @@ package com.masonlai.FlashCards.Model.Entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "flashCardDeck")
@@ -10,7 +12,7 @@ public class FlashCardDeck {
     @Id
     @GeneratedValue
     @Column
-    private Long id;
+    private UUID id;
 
     @Column(nullable = false)
     private String deckName;
@@ -24,16 +26,19 @@ public class FlashCardDeck {
     @JoinColumn (name="user_id")
     private User user;
 
+    @OneToMany(targetEntity=FlashCard.class,cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FlashCard> flashCardList;
+
     @PreUpdate
     protected void onUpdate() {
         lastUpdated = new Date();
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
