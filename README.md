@@ -1,7 +1,5 @@
 # Multimedia_FlashCards
 
-# Multimedia_FlashCards
-
 ### The traditional FlashCards are only supporting strings for the card's back. However, a lot of research proved that some people are good at learning through image or sound. As a result, this project is to develop a FlashCard web application. The front-end is using reactJS and the backend is using java spring boot.
 -----------------------
 ## Features
